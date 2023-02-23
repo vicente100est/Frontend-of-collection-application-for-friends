@@ -6,11 +6,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //@angular/material
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 //Components
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { FooterComponent } from './shared/footer/footer.component';
 import { MonthlyComponent } from './staf/monthly/monthly.component';
 import { PaymentComponent } from './staf/payment/payment.component';
 import { StreamingserviceComponent } from './staf/streamingservice/streamingservice.component';
@@ -20,12 +21,13 @@ import { HomeComponent } from './ui/home/home.component';
 import { MypaymentComponent } from './ui/mypayment/mypayment.component';
 import { MystreamingComponent } from './ui/mystreaming/mystreaming.component';
 import { UserdataComponent } from './ui/userdata/userdata.component';
+import { ErrorComponent } from './shared/error/error.component';
+import { ControlpanelComponent } from './staf/controlpanel/controlpanel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent,
     MonthlyComponent,
     PaymentComponent,
     StreamingserviceComponent,
@@ -34,12 +36,16 @@ import { UserdataComponent } from './ui/userdata/userdata.component';
     HomeComponent,
     MypaymentComponent,
     MystreamingComponent,
-    UserdataComponent
+    UserdataComponent,
+    ErrorComponent,
+    ControlpanelComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
     MatIconModule
   ],
   providers: [],
