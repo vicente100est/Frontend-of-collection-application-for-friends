@@ -1,5 +1,7 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+//Components
 import { ErrorComponent } from './shared/error/error.component';
 import { ControlpanelComponent } from './staf/controlpanel/controlpanel.component';
 import { MonthlyComponent } from './staf/monthly/monthly.component';
@@ -27,7 +29,7 @@ const routes: Routes = [
     component: MypaymentComponent
   },
   {
-    path: 'MyStreamings',
+    path: 'mystreamings',
     component: MystreamingComponent
   },
   {

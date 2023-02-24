@@ -1,1 +1,9 @@
-<p>mypayment works!</p>
+<div class="text-center">
+  <h1>Mis Pagos</h1>
+
+  <div *ngFor="let pay of lstPayments; index as i">
+    {{ i + 1 }} {{ pay.idPago }}
+  </div>
+
+
+</div>
