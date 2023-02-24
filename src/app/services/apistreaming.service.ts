@@ -50,4 +50,9 @@ export class ApistreamingService {
     return this._http.get<Response>(environment.url +
       "Usuario", httpOption);
   }
+
+  getUserByService(idService: number): Observable<Response> {
+    return this._http.get<Response>(environment.url +
+      "Servicio/servicesuser/"+idService+"", httpOption);
+  }
 }

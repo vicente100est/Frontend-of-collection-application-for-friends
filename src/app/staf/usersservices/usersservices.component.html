@@ -1,1 +1,26 @@
-<p>usersservices works!</p>
+<div class="text-center">
+  <h1>Usuarios por Servicio</h1>
+
+  <br>
+
+  <select class="form-control text-center" name="" id="">
+    <option selected><--- Selecciona Servicio ---></option>
+    <option *ngFor="let srv of lstServices" value="{{ srv.idServicio }}">{{ srv.nombreServicio }}</option>
+  </select>
+
+  <br>
+
+  <table class="table table-secondary">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usr of lstUsersServices; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ usr.nombresUsuario }} {{ usr.apellidoUsuario }}</td>
+      </tr>
+  </table>
+</div>
