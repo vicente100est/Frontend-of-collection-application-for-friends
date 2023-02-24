@@ -35,4 +35,9 @@ export class ApistreamingService {
     return this._http.get<Response>(environment.url +
       "Status", httpOption);
   }
+
+  getStreamingService(): Observable<Response> {
+    return this._http.get<Response>(environment.url +
+      "Servicio", httpOption);
+  }
 }
