@@ -1,9 +1,24 @@
 <div class="text-center">
   <h1>Mis Pagos</h1>
 
-  <div *ngFor="let pay of lstPayments; index as i">
-    {{ i + 1 }} {{ pay.idPago }}
-  </div>
-
-
+  <table class="table table-success">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Precio</th>
+        <th>Status</th>
+        <th>Mensualidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pay of lstPayments; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ pay.idPago }}</td>
+        <td>{{ pay.precioPago }}</td>
+        <td>{{ pay.nombreStatus }}</td>
+        <td>{{ pay.nombreMensualidad }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

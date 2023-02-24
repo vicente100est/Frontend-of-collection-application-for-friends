@@ -22,7 +22,6 @@ import { UsersservicesComponent } from './staf/usersservices/usersservices.compo
 import { HomeComponent } from './ui/home/home.component';
 import { MypaymentComponent } from './ui/mypayment/mypayment.component';
 import { MystreamingComponent } from './ui/mystreaming/mystreaming.component';
-import { UserdataComponent } from './ui/userdata/userdata.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { ControlpanelComponent } from './staf/controlpanel/controlpanel.component';
 
@@ -38,7 +37,6 @@ import { ControlpanelComponent } from './staf/controlpanel/controlpanel.componen
     HomeComponent,
     MypaymentComponent,
     MystreamingComponent,
-    UserdataComponent,
     ErrorComponent,
     ControlpanelComponent
   ],

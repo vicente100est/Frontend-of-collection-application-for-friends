@@ -16,11 +16,11 @@ export class MypaymentComponent implements OnInit {
   ) {  }
 
   ngOnInit(): void {
-    this.getPayments();
+    this.getPayments(1,1);
   }
 
-  getPayments() {
-    this._apistreaming.getPaymentByStatusAndUser().subscribe(response => {
+  getPayments(user: number, status: number) {
+    this._apistreaming.getPaymentByStatusAndUser(user, status).subscribe(response => {
       if (response.success === 1) {
         this.lstPayments = response.data;
       }
