@@ -1,1 +1,26 @@
-<p>monthly works!</p>
+<div class="text-center">
+  <h1>Mensualidades</h1>
+
+  <br>
+
+  <table class="table table-info">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Servicio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let month of lstMonthly; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>MO{{ month.idMensualidad }}</td>
+        <td>{{ month.nombreMensualidad }}</td>
+        <td>$ {{ month.precioMensualidad }}</td>
+        <td>{{ month.nombreServicio }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
