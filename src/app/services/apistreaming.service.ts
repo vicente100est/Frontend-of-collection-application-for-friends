@@ -21,8 +21,13 @@ export class ApistreamingService {
     private _http: HttpClient
   ) { }
 
-  getPaymentByStatusAndUser(): Observable<Response> {
+  getPaymentByStatusAndUser(idUser: number, idStatus: number): Observable<Response> {
     return this._http.get<Response>(environment.url +
-      "Pagos/payment/1/1", httpOption);
+      "Pagos/payment/"+idUser+"/"+idStatus+"", httpOption);
+  }
+
+  getUsersService(idUser: number): Observable<Response> {
+    return this._http.get<Response>(environment.url +
+      "Usuario/userservice/user="+idUser+"", httpOption);
   }
 }

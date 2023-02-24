@@ -10,7 +10,6 @@ import { StreamingserviceComponent } from './staf/streamingservice/streamingserv
 import { HomeComponent } from './ui/home/home.component';
 import { MypaymentComponent } from './ui/mypayment/mypayment.component';
 import { MystreamingComponent } from './ui/mystreaming/mystreaming.component';
-import { UserdataComponent } from './ui/userdata/userdata.component';
 import { UsersComponent } from './staf/users/users.component';
 import { UsersservicesComponent } from './staf/usersservices/usersservices.component';
 
@@ -31,10 +30,6 @@ const routes: Routes = [
   {
     path: 'mystreamings',
     component: MystreamingComponent
-  },
-  {
-    path: 'user',
-    component: UserdataComponent
   },
   {
     path: 'staf/controlpanel',
