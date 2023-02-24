@@ -1,1 +1,24 @@
-<p>users works!</p>
+<div class="text-center">
+  <h1>Usuarios</h1>
+
+  <br>
+
+  <table class="table table-danger">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Fecha de Nacimiento</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usr of lstUser; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>USR{{ usr.idUsuario }}</td>
+        <td>{{ usr.nombresUsuario }} {{ usr.apellidoUsuario }}</td>
+        <td>{{ usr.fechaNacimientoUsuario }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

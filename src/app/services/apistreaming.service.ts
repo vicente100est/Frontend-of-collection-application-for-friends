@@ -45,4 +45,9 @@ export class ApistreamingService {
     return this._http.get<Response>(environment.url +
       "Mensualidad", httpOption);
   }
+
+  getUsers(): Observable<Response> {
+    return this._http.get<Response>(environment.url +
+      "Usuario", httpOption);
+  }
 }
