@@ -1,1 +1,24 @@
-<p>streamingservice works!</p>
+<div class="text-center">
+  <h1>Streaming</h1>
+
+  <br>
+
+  <table class="table table-parimary">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let svs of lstStreamings; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>SVS{{ svs.idServicio }}</td>
+        <td>{{ svs.nombreServicio }}</td>
+        <td>$ {{ svs.precioServicio }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
