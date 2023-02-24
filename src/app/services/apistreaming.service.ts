@@ -40,4 +40,9 @@ export class ApistreamingService {
     return this._http.get<Response>(environment.url +
       "Servicio", httpOption);
   }
+
+  getMonthlyPayment(): Observable<Response> {
+    return this._http.get<Response>(environment.url +
+      "Mensualidad", httpOption);
+  }
 }
