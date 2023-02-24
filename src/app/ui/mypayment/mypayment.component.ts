@@ -10,12 +10,14 @@ import { ApistreamingService } from '../../services/apistreaming.service';
 export class MypaymentComponent implements OnInit {
 
   public lstPayments: any[] = [];
+  public lstStatus: any[] = [];
 
   constructor(
     private _apistreaming: ApistreamingService
   ) {  }
 
   ngOnInit(): void {
+    this.getStatusPayment();
     this.getPayments(1,1);
   }
 
@@ -23,6 +25,17 @@ export class MypaymentComponent implements OnInit {
     this._apistreaming.getPaymentByStatusAndUser(user, status).subscribe(response => {
       if (response.success === 1) {
         this.lstPayments = response.data;
+      }
+      else {
+        alert("Error: " + response.message);
+      }
+    })
+  }
+
+  getStatusPayment() {
+    this._apistreaming.getStatus().subscribe(response => {
+      if (response.success === 1) {
+        this.lstStatus = response.data;
       }
       else {
         alert("Error: " + response.message);

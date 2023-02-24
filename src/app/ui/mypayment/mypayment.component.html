@@ -1,6 +1,13 @@
 <div class="text-center">
   <h1>Mis Pagos</h1>
 
+  <select class="form-control text-center" name="" id="">
+    <option selected><--- Selecciona Status ---></option>
+    <option *ngFor="let sts of lstStatus" value="{{ sts.idStatus }}">{{ sts.nombreStatus }}</option>
+  </select>
+
+  <br>
+
   <table class="table table-success">
     <thead>
       <tr>
