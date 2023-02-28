@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Nuevo Servicio de Streaming</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Nombre:</mat-label>
+    <input matInput [(ngModel)]="name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Price:</mat-label>
+    <input matInput [(ngModel)]="price">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="close()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="addStreaming()">Guardar</button>
+</div>

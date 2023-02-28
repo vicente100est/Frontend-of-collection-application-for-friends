@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 
 import { Response } from '../model/response';
+import { StreamingService } from '../model/streamingservice';
 
 const httpOption = {
   headers: {
@@ -59,5 +60,10 @@ export class ApistreamingService {
   getPaymentByStatus(idStatus: number): Observable<Response> {
     return this._http.get<Response>(environment.url +
       "Pagos/payment/when-status="+idStatus+"", httpOption);
+  }
+
+  postStreamings(streaming: StreamingService): Observable<Response> {
+    return this._http.post<Response>(environment.url +
+      "Servicio", streaming, httpOption);
   }
 }
