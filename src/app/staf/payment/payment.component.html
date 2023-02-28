@@ -1,6 +1,10 @@
 <div class="text-center">
   <h1>Pagos</h1>
 
+  <button mat-raised-button color="priamary">+</button>
+
+  <br><br>
+
   <select class="form-control text-center" name="" id="">
     <option selected><--- Selecciona Status ---></option>
     <option *ngFor="let sts of lstStatus" value="{{ sts.idStatus }}">{{ sts.nombreStatus }}</option>
