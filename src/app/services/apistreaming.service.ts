@@ -55,4 +55,9 @@ export class ApistreamingService {
     return this._http.get<Response>(environment.url +
       "Servicio/servicesuser/"+idService+"", httpOption);
   }
+
+  getPaymentByStatus(idStatus: number): Observable<Response> {
+    return this._http.get<Response>(environment.url +
+      "Pagos/payment/when-status="+idStatus+"", httpOption);
+  }
 }
