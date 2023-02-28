@@ -1,1 +1,33 @@
-<p>payment works!</p>
+<div class="text-center">
+  <h1>Pagos</h1>
+
+  <select class="form-control text-center" name="" id="">
+    <option selected><--- Selecciona Status ---></option>
+    <option *ngFor="let sts of lstStatus" value="{{ sts.idStatus }}">{{ sts.nombreStatus }}</option>
+  </select>
+
+  <br>
+
+  <table class="table table-success">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Precio</th>
+        <th>Status</th>
+        <th>Mensualidad</th>
+        <th>Usuario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pay of lstPayments; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ pay.idPago }}</td>
+        <td>$ {{ pay.precioPago }}</td>
+        <td>{{ pay.nombreStatus }}</td>
+        <td>{{ pay.nombreMensualidad }}</td>
+        <td>{{ pay.nombresUsuario }} {{ pay.apellidoUsuario }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
