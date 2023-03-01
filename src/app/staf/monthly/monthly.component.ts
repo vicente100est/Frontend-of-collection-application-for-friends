@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MatDialog } from '@angular/material/dialog';
+
 import { ApistreamingService } from 'src/app/services/apistreaming.service';
+import { DialogMonthlyComponent } from './dialog/dialogmonthly.component';
 
 @Component({
   selector: 'app-monthly',
@@ -12,7 +15,8 @@ export class MonthlyComponent implements OnInit {
   public lstMonthly: any[] = [];
 
   constructor(
-    private _apistreaming: ApistreamingService
+    private _apistreaming: ApistreamingService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +32,15 @@ export class MonthlyComponent implements OnInit {
         alert("Error: " + response.message);
       }
     })
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogMonthlyComponent, {
+      width: '300px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getMonthly();
+    });
   }
 
 }
