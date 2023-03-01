@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatSelectModule} from '@angular/material/select';
 
 //Components
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -29,6 +30,7 @@ import { MystreamingComponent } from './ui/mystreaming/mystreaming.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { ControlpanelComponent } from './staf/controlpanel/controlpanel.component';
 import { DialogStreamingComponent } from './staf/streamingservice/dialog/dialogstreaming.component';
+import { DialogMonthlyComponent } from './staf/monthly/dialog/dialogmonthly.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { DialogStreamingComponent } from './staf/streamingservice/dialog/dialogs
     MystreamingComponent,
     ErrorComponent,
     ControlpanelComponent,
-    DialogStreamingComponent
+    DialogStreamingComponent,
+    DialogMonthlyComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ import { DialogStreamingComponent } from './staf/streamingservice/dialog/dialogs
     MatInputModule,
     MatIconModule,
     MatSnackBarModule,
+    MatSelectModule,
     FormsModule
   ],
   providers: [],
