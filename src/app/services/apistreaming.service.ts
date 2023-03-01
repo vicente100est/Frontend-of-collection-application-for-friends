@@ -6,6 +6,10 @@ import { environment } from 'src/environments/environment.development';
 
 import { Response } from '../model/response';
 import { StreamingService } from '../model/streamingservice';
+import { MonthlyPayment } from '../model/monthlypayment';
+import { User } from '../model/user';
+import { UsersService } from '../model/usersservice';
+import { Payment } from '../model/payment';
 
 const httpOption = {
   headers: {
@@ -65,5 +69,25 @@ export class ApistreamingService {
   postStreamings(streaming: StreamingService): Observable<Response> {
     return this._http.post<Response>(environment.url +
       "Servicio", streaming, httpOption);
+  }
+
+  postMonthlyPayment(monthlyPayment: MonthlyPayment): Observable<Response> {
+    return this._http.post<Response>(environment.url +
+      "Mensualidad", monthlyPayment, httpOption);
+  }
+
+  postUsers(user: User): Observable<Response> {
+    return this._http.post<Response>(environment.url +
+      "Usuario", user, httpOption);
+  }
+
+  postUserService(us: UsersService): Observable<Response> {
+    return this._http.post<Response>(environment.url +
+      "UsuarioServicio", us, httpOption);
+  }
+
+  postPayment(payment: Payment): Observable<Response> {
+    return this._http.post<Response>(environment.url +
+      "Pagos", payment, httpOption);
   }
 }
