@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
+import { MatDialog } from '@angular/material/dialog';
+
 import { ApistreamingService } from '../../services/apistreaming.service';
+
+import { DialogPaymentsComponent } from './dialog/dialogpayment.component';
 
 @Component({
   selector: 'app-payment',
@@ -8,13 +13,14 @@ import { ApistreamingService } from '../../services/apistreaming.service';
 })
 export class PaymentComponent implements OnInit {
 
-  public idStatus: number = 0;
+  public idStatus: number = 2;
 
   public lstStatus: any[] = [];
   public lstPayments: any[] = [];
 
   constructor(
-    private _apistreaming: ApistreamingService
+    private _apistreaming: ApistreamingService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -42,6 +48,15 @@ export class PaymentComponent implements OnInit {
         alert("Error: " + response.message);
       }
     })
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogPaymentsComponent, {
+      width: '300px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getPayments(this.idStatus);
+    });
   }
 
 }

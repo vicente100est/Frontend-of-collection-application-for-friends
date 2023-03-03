@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Nuevo Pago</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Precio:</mat-label>
+    <input matInput [(ngModel)]="price">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Status:</mat-label>
+    <mat-select matInput [(ngModel)]="status">
+      <mat-option *ngFor="let sts of lstStatus" [value]="sts.idStatus">
+        {{ sts.nombreStatus }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Mensualidad</mat-label>
+    <mat-select matInput [(ngModel)]="idmonthly">
+      <mat-option *ngFor="let mth of lstMonyhly" [value]="mth.idMensualidad">
+        {{ mth.nombreMensualidad }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Usuario:</mat-label>
+    <mat-select matInput [(ngModel)]="iduser">
+      <mat-option *ngFor="let usr of lstUsers" [value]="usr.idUsuario">
+        {{ usr.nombresUsuario }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="close()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="addPayment()">Guardar</button>
+</div>
