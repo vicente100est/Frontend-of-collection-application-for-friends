@@ -33,6 +33,7 @@ import { DialogStreamingComponent } from './staf/streamingservice/dialog/dialogs
 import { DialogMonthlyComponent } from './staf/monthly/dialog/dialogmonthly.component';
 import { DialogUsersComponent } from './staf/users/dialog/dialogusers.component';
 import { DialogUSComponent } from './staf/usersservices/dialog/dialogus.component';
+import { DialogPaymentsComponent } from './staf/payment/dialog/dialogpayment.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { DialogUSComponent } from './staf/usersservices/dialog/dialogus.componen
     DialogStreamingComponent,
     DialogMonthlyComponent,
     DialogUsersComponent,
-    DialogUSComponent
+    DialogUSComponent,
+    DialogPaymentsComponent
   ],
   imports: [
     BrowserModule,
