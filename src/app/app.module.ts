@@ -32,6 +32,7 @@ import { ControlpanelComponent } from './staf/controlpanel/controlpanel.componen
 import { DialogStreamingComponent } from './staf/streamingservice/dialog/dialogstreaming.component';
 import { DialogMonthlyComponent } from './staf/monthly/dialog/dialogmonthly.component';
 import { DialogUsersComponent } from './staf/users/dialog/dialogusers.component';
+import { DialogUSComponent } from './staf/usersservices/dialog/dialogus.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { DialogUsersComponent } from './staf/users/dialog/dialogusers.component'
     ControlpanelComponent,
     DialogStreamingComponent,
     DialogMonthlyComponent,
-    DialogUsersComponent
+    DialogUsersComponent,
+    DialogUSComponent
   ],
   imports: [
     BrowserModule,
