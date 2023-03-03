@@ -5,10 +5,14 @@
 
   <br><br>
 
-  <select class="form-control text-center" name="" id="">
-    <option selected><--- Selecciona Status ---></option>
-    <option *ngFor="let sts of lstStatus" value="{{ sts.idStatus }}">{{ sts.nombreStatus }}</option>
-  </select>
+  <mat-form-field>
+    <mat-label>Status:</mat-label>
+    <mat-select matInput [(ngModel)]="idStatus">
+      <mat-option *ngFor="let sts of lstStatus" (click)="getPayments(sts.idStatus)">
+        {{ sts.nombreStatus }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
   <br>
 
