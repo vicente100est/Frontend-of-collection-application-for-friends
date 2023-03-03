@@ -8,6 +8,8 @@ import { ApistreamingService } from '../../services/apistreaming.service';
 })
 export class PaymentComponent implements OnInit {
 
+  public idStatus: number = 0;
+
   public lstStatus: any[] = [];
   public lstPayments: any[] = [];
 
@@ -17,7 +19,7 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStatusPayment();
-    this.getPayments(1);
+    this.getPayments(this.idStatus);
   }
 
   getPayments(idStatus: number) {

@@ -8,7 +8,7 @@
   <mat-form-field>
     <mat-label>Servicio:</mat-label>
     <mat-select matInput [(ngModel)]="idService">
-      <mat-option *ngFor="let svs of lstServices" [value]="svs.idServicio" (click)="getUsersByService(svs.idServicio)">
+      <mat-option *ngFor="let svs of lstServices" (click)="getUsersByService(svs.idServicio)">
         {{ svs.nombreServicio }}
       </mat-option>
     </mat-select>
