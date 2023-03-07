@@ -13,6 +13,7 @@
         <th>Nombre</th>
         <th>Precio</th>
         <th>Servicio</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +23,11 @@
         <td>{{ month.nombreMensualidad }}</td>
         <td>$ {{ month.precioMensualidad }}</td>
         <td>{{ month.nombreServicio }}</td>
+        <td>
+          <button mat-raised-button color="primary">Editar</button>
+          <br><br>
+          <button mat-raised-button color="warn">Eliminar</button>
+        </td>
       </tr>
     </tbody>
   </table>
