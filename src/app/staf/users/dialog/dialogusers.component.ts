@@ -13,6 +13,7 @@ import { User } from "src/app/model/user";
 
 export class DialogUsersComponent {
 
+  public id: number = 0;
   public name: string = "";
   public lastname: string = "";
   public birthdate: string = "";
@@ -25,6 +26,7 @@ export class DialogUsersComponent {
     @Inject(MAT_DIALOG_DATA) public users: User
   ) {
     if (this.users !== null) {
+      this.id = users.idUsuario!;
       this.name = users.nombresUsuario;
       this.lastname = users.apellidoUsuario;
       this.birthdate = users.fechaNacimientoUsuario;
@@ -47,6 +49,24 @@ export class DialogUsersComponent {
       if (response.success === 1) {
         this.dialogRef.close();
         this.snackBar.open("Usuario agregado correctamente", "", {duration: 2000});
+      }
+      else {
+        alert("Error: " + response.message);
+      }
+    });
+  }
+
+  updateUser() {
+    const user: User = {
+      nombresUsuario: this.name,
+      apellidoUsuario: this.lastname,
+      fechaNacimientoUsuario: this.birthdate,
+      telefonoUsuario: this.phone
+    };
+    this.apistreaming.putUsers(user, this.id).subscribe(response => {
+      if (response.success === 1) {
+        this.dialogRef.close();
+        this.snackBar.open("Se ha editado el usuario correctamente", "", {duration: 2000});
       }
       else {
         alert("Error: " + response.message);
