@@ -106,11 +106,6 @@ export class ApistreamingService {
       `Usuario/${id}`, user, httpOption);
   }
 
-  putUserService(us: UsersService, id: number): Observable<Response> {
-    return this._http.put<Response>(environment.url +
-      `UsuarioServicio/${id}`, us, httpOption);
-  }
-
   putPayment(payment: Payment, id: number): Observable<Response> {
     return this._http.put<Response>(environment.url +
       `Pagos/${id}`, payment, httpOption);
