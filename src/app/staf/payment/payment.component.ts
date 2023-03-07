@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
 
+import { Payment } from 'src/app/model/payment';
+
 import { ApistreamingService } from '../../services/apistreaming.service';
 
 import { DialogPaymentsComponent } from './dialog/dialogpayment.component';
@@ -17,6 +19,8 @@ export class PaymentComponent implements OnInit {
 
   public lstStatus: any[] = [];
   public lstPayments: any[] = [];
+
+  private readonly width: string = '300px';
 
   constructor(
     private _apistreaming: ApistreamingService,
@@ -52,7 +56,17 @@ export class PaymentComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogPaymentsComponent, {
-      width: '300px',
+      width: this.width
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getPayments(this.idStatus);
+    });
+  }
+
+  openEdit(pay: Payment) {
+    const dialogRef = this.dialog.open(DialogPaymentsComponent, {
+      width: this.width,
+      data: pay
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getPayments(this.idStatus);

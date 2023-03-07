@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 
-import { MatDialogRef } from "@angular/material/dialog";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
 
 import { ApistreamingService } from 'src/app/services/apistreaming.service';
@@ -24,8 +24,16 @@ export class DialogPaymentsComponent implements OnInit{
   constructor(
     public dialogRef: MatDialogRef<DialogPaymentsComponent>,
     public apistreaming: ApistreamingService,
-    public snackBar: MatSnackBar
-  ) { }
+    public snackBar: MatSnackBar,
+    @Inject(MAT_DIALOG_DATA) public payment: Payment
+  ) {
+    if (this.payment !== null) {
+      this.price = payment.precioPago;
+      this.status = payment.idStatus;
+      this.idmonthly = payment.idMensualidad;
+      this.iduser = payment.idUsuario;
+    }
+  }
 
   ngOnInit(): void {
     this.getStatusPayment();

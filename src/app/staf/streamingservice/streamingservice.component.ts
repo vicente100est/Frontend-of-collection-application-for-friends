@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
 
+import { StreamingService } from 'src/app/model/streamingservice';
 
 import { ApistreamingService } from 'src/app/services/apistreaming.service';
 import { DialogStreamingComponent } from './dialog/dialogstreaming.component';
@@ -14,6 +15,7 @@ import { DialogStreamingComponent } from './dialog/dialogstreaming.component';
 export class StreamingserviceComponent implements OnInit {
 
   public lstStreamings: any[] = [];
+  private readonly width: string = '300px';
 
   constructor(
     private _apistreaming: ApistreamingService,
@@ -37,7 +39,17 @@ export class StreamingserviceComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogStreamingComponent, {
-      width: '300px',
+      width: this.width
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getStreaming();
+    });
+  }
+
+  openEdit(streaming: StreamingService) {
+    const dialogRef = this.dialog.open(DialogStreamingComponent, {
+      width: this.width,
+      data: streaming
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getStreaming();

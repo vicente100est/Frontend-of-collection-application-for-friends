@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Nuevo Servicio de Streaming</h1>
+<h1 mat-dialog-title>{{ streamings != null ? 'Editar Servicio de Streaming' : 'Nuevo Servicio de Streaming' }}</h1>
 <div mat-dialog-content>
   <mat-form-field>
     <mat-label>Nombre:</mat-label>
@@ -11,5 +11,6 @@
 </div>
 <div mat-dialog-actions>
   <button mat-raised-button (click)="close()">Cancelar</button>
-  <button mat-raised-button color="primary" (click)="addStreaming()">Guardar</button>
+  <button mat-raised-button color="primary"
+    (click)="streamings != null ? updateStreaming() : addStreaming()">Guardar</button>
 </div>

@@ -29,7 +29,7 @@
         <td>{{ i + 1 }}</td>
         <td>{{ usr.nombresUsuario }} {{ usr.apellidoUsuario }}</td>
         <td>
-          <button mat-raised-button color="primary">Editar</button>
+          <button mat-raised-button color="primary" (click)="openEdit(usr)">Editar</button>
           <br><br>
           <button mat-raised-button color="warn">Eliminar</button>
         </td>

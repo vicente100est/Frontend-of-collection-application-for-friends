@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
 
+import { UsersService } from 'src/app/model/usersservice';
+
 import { ApistreamingService } from 'src/app/services/apistreaming.service';
 
 import { DialogUSComponent } from './dialog/dialogus.component';
@@ -17,6 +19,8 @@ export class UsersservicesComponent implements OnInit {
 
   public lstServices: any[] = [];
   public lstUsersServices: any[] = [];
+
+  private readonly width: string = '300px';
 
   constructor(
     private _apistreaming: ApistreamingService,
@@ -52,7 +56,18 @@ export class UsersservicesComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogUSComponent, {
-      width: '300px',});
+      width: this.width
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getUsersByService(this.idService);
+    })
+  }
+
+  openEdit(userService: UsersService) {
+    const dialogRef = this.dialog.open(DialogUSComponent, {
+      width: this.width,
+      data: userService
+    });
     dialogRef.afterClosed().subscribe(result => {
       this.getUsersByService(this.idService);
     })

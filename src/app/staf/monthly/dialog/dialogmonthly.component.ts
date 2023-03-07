@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Inject } from "@angular/core";
 
-import { MatDialogRef } from "@angular/material/dialog";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
 
 import { ApistreamingService } from 'src/app/services/apistreaming.service';
@@ -22,8 +22,15 @@ export class DialogMonthlyComponent implements OnInit{
   constructor(
     public dialogRef: MatDialogRef<DialogMonthlyComponent>,
     public apistreaming: ApistreamingService,
-    public snackBar: MatSnackBar
-  ) { }
+    public snackBar: MatSnackBar,
+    @Inject(MAT_DIALOG_DATA) public monthly: MonthlyPayment
+  ) {
+    if (this.monthly !== null) {
+      this.name = monthly.nombreMensualidad;
+      this.price = monthly.precioMensualidad;
+      this.idstreaming = monthly.idServicio;
+    }
+  }
 
   ngOnInit(): void {
     this.getStreamings();

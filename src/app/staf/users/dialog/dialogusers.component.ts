@@ -1,6 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, Inject } from "@angular/core";
 
-import { MatDialogRef } from "@angular/material/dialog";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
 
 import { ApistreamingService } from 'src/app/services/apistreaming.service';
@@ -21,8 +21,16 @@ export class DialogUsersComponent {
   constructor(
     public dialogRef: MatDialogRef<DialogUsersComponent>,
     public apistreaming: ApistreamingService,
-    public snackBar: MatSnackBar
-  ) { }
+    public snackBar: MatSnackBar,
+    @Inject(MAT_DIALOG_DATA) public users: User
+  ) {
+    if (this.users !== null) {
+      this.name = users.nombresUsuario;
+      this.lastname = users.apellidoUsuario;
+      this.birthdate = users.fechaNacimientoUsuario;
+      this.phone = users.telefonoUsuario;
+    }
+  }
 
   close() {
     this.dialogRef.close();
