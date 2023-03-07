@@ -16,6 +16,7 @@ export class DialogPaymentsComponent implements OnInit{
   public lstMonyhly: any[] = [];
   public lstUsers: any[] = [];
 
+  public id: string = "";
   public price: number = 0;
   public status: number = 0;
   public idmonthly: number = 0;
@@ -28,6 +29,7 @@ export class DialogPaymentsComponent implements OnInit{
     @Inject(MAT_DIALOG_DATA) public payment: Payment
   ) {
     if (this.payment !== null) {
+      this.id = payment.idPago!;
       this.price = payment.precioPago;
       this.status = payment.idStatus;
       this.idmonthly = payment.idMensualidad;
@@ -89,6 +91,26 @@ export class DialogPaymentsComponent implements OnInit{
       if (response.success === 1) {
         this.dialogRef.close();
         this.snackBar.open("Pago agregado", "", {
+          duration: 2000
+        });
+      }
+      else {
+        alert("Error: " + response.message);
+      }
+    });
+  }
+
+  updatePayment() {
+    const payment: Payment = {
+      precioPago: this.price,
+      idStatus: this.status,
+      idMensualidad: this.idmonthly,
+      idUsuario: this.iduser
+    };
+    this.apistreaming.putPayment(payment, this.id).subscribe(response => {
+      if (response.success === 1) {
+        this.dialogRef.close();
+        this.snackBar.open("Pago modificado", "", {
           duration: 2000
         });
       }

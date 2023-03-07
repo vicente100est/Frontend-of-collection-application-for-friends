@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Nuevo Pago</h1>
+<h1 mat-dialog-title>{{ payment != null ? 'Editar Pago' : 'Nuevo Pago'}}</h1>
 <div mat-dialog-content>
   <mat-form-field>
     <mat-label>Precio:</mat-label>
@@ -31,5 +31,6 @@
 </div>
 <div mat-dialog-actions>
   <button mat-raised-button (click)="close()">Cancelar</button>
-  <button mat-raised-button color="primary" (click)="addPayment()">Guardar</button>
+  <button mat-raised-button color="primary"
+    (click)="payment != null ? updatePayment() : addPayment()">Guardar</button>
 </div>
