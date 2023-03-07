@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Nueva Mensualidad</h1>
+<h1 mat-dialog-title>{{ monthly != null ? 'Editar Mensualidad' : 'Nueva Mensualidad'}}</h1>
 <div mat-dialog-content>
   <mat-form-field>
     <mat-label>Nombre:</mat-label>
@@ -19,5 +19,6 @@
 </div>
 <div mat-dialog-actions>
   <button mat-raised-button (click)="close()">Cancelar</button>
-  <button mat-raised-button color="primary" (click)="addMonthly()">Guardar</button>
+  <button mat-raised-button color="primary"
+    (click)="monthly != null ? updateMonthly() : addMonthly()">Guardar</button>
 </div>

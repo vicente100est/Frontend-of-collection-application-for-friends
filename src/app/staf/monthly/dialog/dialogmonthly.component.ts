@@ -13,6 +13,7 @@ import { MonthlyPayment } from '../../../model/monthlypayment';
 
 export class DialogMonthlyComponent implements OnInit{
 
+  public id: number = 0;
   public name: string = '';
   public price: number = 0;
   public idstreaming: number = 0;
@@ -26,6 +27,7 @@ export class DialogMonthlyComponent implements OnInit{
     @Inject(MAT_DIALOG_DATA) public monthly: MonthlyPayment
   ) {
     if (this.monthly !== null) {
+      this.id = monthly.idMensualidad!;
       this.name = monthly.nombreMensualidad;
       this.price = monthly.precioMensualidad;
       this.idstreaming = monthly.idServicio;
@@ -61,6 +63,23 @@ export class DialogMonthlyComponent implements OnInit{
       if (response.success === 1) {
         this.dialogRef.close();
         this.snackBar.open('Se agregó la mensualidad', '', {duration: 2000});
+      }
+      else {
+        alert("Error: " + response.message);
+      }
+    });
+  }
+
+  updateMonthly() {
+    const monthly: MonthlyPayment = {
+      nombreMensualidad: this.name,
+      precioMensualidad: this.price,
+      idServicio: this.idstreaming
+    };
+    this.apistreaming.putMonthlyPayment(monthly, this.id).subscribe(response => {
+      if (response.success === 1) {
+        this.dialogRef.close();
+        this.snackBar.open('Se ha modificado la mensualidad', '', {duration: 2000});
       }
       else {
         alert("Error: " + response.message);
