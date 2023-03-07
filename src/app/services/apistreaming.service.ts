@@ -28,12 +28,12 @@ export class ApistreamingService {
 
   getPaymentByStatusAndUser(idUser: number, idStatus: number): Observable<Response> {
     return this._http.get<Response>(environment.url +
-      "Pagos/payment/"+idUser+"/"+idStatus+"", httpOption);
+      `Pagos/payment/${idUser}/${idStatus}`, httpOption);
   }
 
   getUsersService(idUser: number): Observable<Response> {
     return this._http.get<Response>(environment.url +
-      "Usuario/userservice/user="+idUser+"", httpOption);
+      `Usuario/userservice/user=${idUser}`, httpOption);
   }
 
   getStatus(): Observable<Response> {
@@ -58,12 +58,12 @@ export class ApistreamingService {
 
   getUserByService(idService: number): Observable<Response> {
     return this._http.get<Response>(environment.url +
-      "Servicio/servicesuser/"+idService+"", httpOption);
+      `Servicio/servicesuser/${idService}`, httpOption);
   }
 
   getPaymentByStatus(idStatus: number): Observable<Response> {
     return this._http.get<Response>(environment.url +
-      "Pagos/payment/when-status="+idStatus+"", httpOption);
+      `Pagos/payment/when-status=${idStatus}`, httpOption);
   }
 
   postStreamings(streaming: StreamingService): Observable<Response> {
@@ -89,5 +89,50 @@ export class ApistreamingService {
   postPayment(payment: Payment): Observable<Response> {
     return this._http.post<Response>(environment.url +
       "Pagos", payment, httpOption);
+  }
+
+  putStreamings(streamign: StreamingService, id: number): Observable<Response> {
+    return this._http.put<Response>(environment.url +
+      `Servicio/${id}`, streamign, httpOption);
+  }
+
+  putMonthlyPayment(monthlyPayment: MonthlyPayment, id: number): Observable<Response> {
+    return this._http.put<Response>(environment.url +
+      `Mensualidad/${id}`, monthlyPayment, httpOption);
+  }
+
+  putUsers(user: User, id: number): Observable<Response> {
+    return this._http.put<Response>(environment.url +
+      `Usuario/${id}`, user, httpOption);
+  }
+
+  putUserService(us: UsersService, id: number): Observable<Response> {
+    return this._http.put<Response>(environment.url +
+      `UsuarioServicio/${id}`, us, httpOption);
+  }
+
+  putPayment(payment: Payment, id: number): Observable<Response> {
+    return this._http.put<Response>(environment.url +
+      `Pagos/${id}`, payment, httpOption);
+  }
+
+  deleteStreaming(id: number): Observable<Response> {
+    return this._http.delete<Response>(environment.url +
+      `Servicio/${id}`, httpOption);
+  }
+
+  deleteMonthlyPayment(id: number): Observable<Response> {
+    return this._http.delete<Response>(environment.url +
+      `Mensualidad/${id}`, httpOption);
+  }
+
+  deleteUsers(id: number): Observable<Response> {
+    return this._http.delete<Response>(environment.url +
+      `Usuario/${id}`, httpOption);
+  }
+
+  deleteUserService(id: string): Observable<Response> {
+    return this._http.delete<Response>(environment.url +
+      `UsuarioServicio/${id}`, httpOption);
   }
 }

@@ -1,5 +1,5 @@
 export interface Payment {
-  idPago?: number;
+  idPago?: string;
   precioPago: number;
   idStatus: number;
   idMensualidad: number;
