@@ -63,14 +63,4 @@ export class UsersservicesComponent implements OnInit {
     })
   }
 
-  openEdit(userService: UsersService) {
-    const dialogRef = this.dialog.open(DialogUSComponent, {
-      width: this.width,
-      data: userService
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      this.getUsersByService(this.idService);
-    })
-  }
-
 }
