@@ -21,12 +21,18 @@
       <tr>
         <th>#</th>
         <th>Nombre</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let usr of lstUsersServices; index as i">
         <td>{{ i + 1 }}</td>
         <td>{{ usr.nombresUsuario }} {{ usr.apellidoUsuario }}</td>
+        <td>
+          <button mat-raised-button color="primary">Editar</button>
+          <br><br>
+          <button mat-raised-button color="warn">Eliminar</button>
+        </td>
       </tr>
   </table>
 </div>

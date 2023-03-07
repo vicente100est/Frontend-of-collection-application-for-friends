@@ -25,6 +25,7 @@
         <th>Status</th>
         <th>Mensualidad</th>
         <th>Usuario</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -35,6 +36,11 @@
         <td>{{ pay.nombreStatus }}</td>
         <td>{{ pay.nombreMensualidad }}</td>
         <td>{{ pay.nombresUsuario }} {{ pay.apellidoUsuario }}</td>
+        <td>
+          <button mat-raised-button color="primary">Editar</button>
+          <br><br>
+          <button mat-raised-button color="warn">Eliminar</button>
+        </td>
       </tr>
     </tbody>
   </table>
