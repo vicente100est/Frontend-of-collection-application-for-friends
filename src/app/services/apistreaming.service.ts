@@ -106,7 +106,7 @@ export class ApistreamingService {
       `Usuario/${id}`, user, httpOption);
   }
 
-  putPayment(payment: Payment, id: number): Observable<Response> {
+  putPayment(payment: Payment, id: string): Observable<Response> {
     return this._http.put<Response>(environment.url +
       `Pagos/${id}`, payment, httpOption);
   }
@@ -124,11 +124,6 @@ export class ApistreamingService {
   deleteUsers(id: number): Observable<Response> {
     return this._http.delete<Response>(environment.url +
       `Usuario/${id}`, httpOption);
-  }
-
-  deleteUserService(id: number): Observable<Response> {
-    return this._http.delete<Response>(environment.url +
-      `UsuarioServicio/${id}`, httpOption);
   }
 
   deletePament(id: string): Observable<Response> {
