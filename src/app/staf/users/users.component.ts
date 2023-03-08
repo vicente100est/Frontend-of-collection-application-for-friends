@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DialogDeleteComponent } from 'src/app/common/delete/dialogdelete.component';
 
 import { User } from 'src/app/model/user';
 
@@ -20,7 +22,8 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private _apistreaming: ApistreamingService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public snakBar: MatSnackBar
   ) {  }
 
   ngOnInit(): void {
@@ -54,6 +57,27 @@ export class UsersComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getUser();
+    });
+  }
+
+  deleteUser(user: User) {
+    const dialogRef = this.dialog.open(DialogDeleteComponent, {
+      width: this.width
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this._apistreaming.deleteUsers(user.idUsuario!).subscribe(response => {
+          if (response.success === 1) {
+            this.snakBar.open("Usuario eliminado", "", {
+              duration: 2000,
+            });
+            this.getUser();
+          }
+          else {
+            alert("Error: " + response.message);
+          }
+        });
+      }
     });
   }
 }

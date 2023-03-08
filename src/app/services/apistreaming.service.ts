@@ -126,7 +126,7 @@ export class ApistreamingService {
       `Usuario/${id}`, httpOption);
   }
 
-  deletePament(id: string): Observable<Response> {
+  deletePayment(id: string): Observable<Response> {
     return this._http.delete<Response>(environment.url +
       `Pagos/${id}`, httpOption);
   }
