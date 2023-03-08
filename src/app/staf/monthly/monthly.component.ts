@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { MonthlyPayment } from 'src/app/model/monthlypayment';
 
 import { ApistreamingService } from 'src/app/services/apistreaming.service';
 import { DialogMonthlyComponent } from './dialog/dialogmonthly.component';
+import { DialogDeleteComponent } from 'src/app/common/delete/dialogdelete.component';
 
 @Component({
   selector: 'app-monthly',
@@ -19,7 +21,8 @@ export class MonthlyComponent implements OnInit {
 
   constructor(
     private _apistreaming: ApistreamingService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -53,6 +56,27 @@ export class MonthlyComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getMonthly();
+    });
+  }
+
+  deleteMonth(month: MonthlyPayment) {
+    const dialogRef = this.dialog.open(DialogDeleteComponent, {
+      width: this.width
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this._apistreaming.deleteMonthlyPayment(month.idMensualidad!).subscribe(response => {
+          if (response.success === 1) {
+            this.snackBar.open("Mensualidad eliminada", "", {
+              duration: 2000,
+            });
+            this.getMonthly();
+          }
+          else {
+            alert("Error: " + response.message);
+          }
+        });
+      }
     });
   }
 
