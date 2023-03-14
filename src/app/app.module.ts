@@ -35,6 +35,8 @@ import { DialogUsersComponent } from './staf/users/dialog/dialogusers.component'
 import { DialogUSComponent } from './staf/usersservices/dialog/dialogus.component';
 import { DialogPaymentsComponent } from './staf/payment/dialog/dialogpayment.component';
 import { DialogDeleteComponent } from './common/delete/dialogdelete.component';
+import { LoginAdminComponent } from './staf/login/loginadmin.component';
+import { LoginUserComponent } from './ui/login/login.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { DialogDeleteComponent } from './common/delete/dialogdelete.component';
     DialogUsersComponent,
     DialogUSComponent,
     DialogPaymentsComponent,
-    DialogDeleteComponent
+    DialogDeleteComponent,
+    LoginAdminComponent,
+    LoginUserComponent
   ],
   imports: [
     BrowserModule,
