@@ -18,7 +18,6 @@ export class NavbarComponent {
   ) {
     this._apiAuth.admin.subscribe(res => {
       this.adminLog = res;
-      console.log('Cambio el objeto: ' + res);
     });
   }
 
