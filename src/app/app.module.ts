@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,9 +24,6 @@ import { PaymentComponent } from './staf/payment/payment.component';
 import { StreamingserviceComponent } from './staf/streamingservice/streamingservice.component';
 import { UsersComponent } from './staf/users/users.component';
 import { UsersservicesComponent } from './staf/usersservices/usersservices.component';
-import { HomeComponent } from './ui/home/home.component';
-import { MypaymentComponent } from './ui/mypayment/mypayment.component';
-import { MystreamingComponent } from './ui/mystreaming/mystreaming.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { ControlpanelComponent } from './staf/controlpanel/controlpanel.component';
 import { DialogStreamingComponent } from './staf/streamingservice/dialog/dialogstreaming.component';
@@ -36,7 +33,7 @@ import { DialogUSComponent } from './staf/usersservices/dialog/dialogus.componen
 import { DialogPaymentsComponent } from './staf/payment/dialog/dialogpayment.component';
 import { DialogDeleteComponent } from './common/delete/dialogdelete.component';
 import { LoginAdminComponent } from './staf/login/loginadmin.component';
-import { LoginUserComponent } from './ui/login/login.component';
+import { JwtInterceptor } from './auth/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -47,9 +44,6 @@ import { LoginUserComponent } from './ui/login/login.component';
     StreamingserviceComponent,
     UsersComponent,
     UsersservicesComponent,
-    HomeComponent,
-    MypaymentComponent,
-    MystreamingComponent,
     ErrorComponent,
     ControlpanelComponent,
     DialogStreamingComponent,
@@ -58,8 +52,7 @@ import { LoginUserComponent } from './ui/login/login.component';
     DialogUSComponent,
     DialogPaymentsComponent,
     DialogDeleteComponent,
-    LoginAdminComponent,
-    LoginUserComponent
+    LoginAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +69,9 @@ import { LoginUserComponent } from './ui/login/login.component';
     MatSelectModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
