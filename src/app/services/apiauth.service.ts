@@ -19,6 +19,8 @@ export class ApiauthService {
 
   private _administradorSubject: BehaviorSubject<Admin> = new BehaviorSubject<Admin>({} as Admin);
 
+  public admin: Observable<Admin>;
+
   public get administradorData(): Admin {
     return this._administradorSubject.value;
   }
@@ -26,7 +28,10 @@ export class ApiauthService {
   constructor(
     private _http: HttpClient
   ) {
-    this._administradorSubject = new BehaviorSubject<Admin>(JSON.parse(localStorage.getItem('administrador') || '{}'));
+    this._administradorSubject =
+      new BehaviorSubject<Admin>(JSON.parse(localStorage.getItem('administrador') || '{}'));
+
+    this.admin = this._administradorSubject.asObservable();
   }
 
   loginAdmin(nombreAdministrador: string, contrasenaAdministrador: string): Observable<Response> {
